@@ -1,17 +1,13 @@
 #Update system
 sudo yum -y update && sudo yum -y upgrade
 
-#Install and config ZSH
-sudo yum -y install zsh 
-zsh --version
-chsh -s $(which zsh)
-echo $SHELL
-
-sudo dnf -y install wget git
-sudo sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 #Install xclip
-sudo dnf -y install xclip
+sudo yum -y install epel-release.noarch
+sudo yum -y install xclip
+
+#Install xsel
+sudo yum -y install epel-release.noarch
+sudo yum -y install xsel
 
 #Install and config tmux
 sudo yum -y install tmux
@@ -21,7 +17,10 @@ tmux source ~/.tmux.conf
 
 
 
+
 #Install and config kakoun
+sudo yum -y install epel-release
+sudo yum repolist
 sudo yum -y install kakoune
 
 sudo mkdir -p $HOME/.config/kak/plugins 
@@ -67,3 +66,11 @@ echo 'source "plug "andreyorst/kaktree" config %{
 
 
 
+#Install and config ZSH
+sudo yum -y install zsh 
+zsh --version
+chsh -s $(which zsh)
+echo $SHELL
+
+sudo dnf -y install wget git
+sudo sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
