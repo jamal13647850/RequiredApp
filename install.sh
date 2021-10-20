@@ -1,31 +1,34 @@
 #!/bin/bash
 
-#chech run as sudo
+#check run as sudo
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
 
 #Update system
-echo "Start Update System . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+echo -e '\e[1;31mStart Update System \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 sudo yum -y update && sudo yum -y upgrade
 
 #Install xclip
-echo "Install xclip . . . . . . . . . . . . . . . . . . . . . . "
+echo -e '\e[1;31mInstall xclip \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 sudo yum -y install epel-release.noarch
 sudo yum -y install xclip
 
 #Install xsel
-echo "Install xsel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  . . . . . "
+echo -e '\e[1;31mInstall xsel \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+
 sudo yum -y install epel-release.noarch
 sudo yum -y install xsel
 
 #Install wget curl nano
-echo "Install wget curl nano . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+echo -e '\e[1;31mInstall wget curl nano \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+
 sudo dnf -y install wget curl nano
 
 #Install and config tmux
-echo "Install and config tmux . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+echo -e '\e[1;31mInstall and config tmux \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+
 sudo yum -y install tmux
 sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo cp -v ./.tmux.conf ~/.tmux.conf
@@ -35,7 +38,8 @@ tmux source ~/.tmux.conf
 
 
 #Install and config kakoun
-echo "Install and config kakoun . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+echo -e '\e[1;31mInstall and config kakoun \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+
 sudo yum -y install epel-release
 sudo yum repolist
 sudo yum -y install kakoune
@@ -81,20 +85,20 @@ sudo echo 'source "plug "andreyorst/kaktree" config %{
 
 
 #Install wp cli
-echo "Install wp cli . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+echo -e '\e[1;31mInstall wp cli \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 sudo wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
 sudo chmod +x wp-cli.phar 
 sudo mv wp-cli.phar /usr/local/bin/wp 
 export WP_CLI_ALLOW_ROOT=true
 
 #Install bashtop: 
-echo "Install bashtop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+echo -e '\e[1;31mInstall bashtop \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 sudo git clone https://github.com/aristocratos/bashtop.git 
 sudo yum -y install make
 (cd bashtop/ && sudo make install)
 
 #Install ctop: 
-echo "Install ctop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+echo -e '\e[1;31mInstall ctop \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 sudo wget https://github.com/bcicen/ctop/releases/download/0.7.6/ctop-0.7.6-linux-amd64 -O /usr/local/bin/ctop 
 sudo chmod +x /usr/local/bin/ctop 
 
