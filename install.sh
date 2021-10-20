@@ -90,7 +90,7 @@ export WP_CLI_ALLOW_ROOT=true
 #Install bashtop: 
 echo "Install bashtop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo git clone https://github.com/aristocratos/bashtop.git 
-sudo yum install make
+sudo yum -y install make
 (cd bashtop/ && sudo make install)
 
 #Install ctop: 
