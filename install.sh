@@ -1,15 +1,23 @@
 #Update system
+echo "Strar Update System . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y update && sudo yum -y upgrade
 
 #Install xclip
+echo "Install xclip . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y install epel-release.noarch
 sudo yum -y install xclip
 
 #Install xsel
+echo "Install xsel . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y install epel-release.noarch
 sudo yum -y install xsel
 
+#Install wget curl nano
+echo "Install wget curl nano . . . . . . . . . . . . . . . . . . . . . . "
+sudo dnf -y install wget curl nano
+
 #Install and config tmux
+echo "Install and config tmux . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y install tmux
 sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo cp -v ./.tmux.conf ~/.tmux.conf
@@ -19,6 +27,7 @@ tmux source ~/.tmux.conf
 
 
 #Install and config kakoun
+echo "Install and config kakoun . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y install epel-release
 sudo yum repolist
 sudo yum -y install kakoune
@@ -67,10 +76,11 @@ echo 'source "plug "andreyorst/kaktree" config %{
 
 
 #Install and config ZSH
+echo "Install and config ZSH . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y install zsh 
 zsh --version
 chsh -s $(which zsh)
 echo $SHELL
 
-sudo dnf -y install wget git
+
 sudo sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
