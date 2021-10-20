@@ -1,5 +1,5 @@
 #Update system
-echo "Start Update System . . . . . . . . . . . . . . . . . . . . . . "
+echo "Start Update System . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y update && sudo yum -y upgrade
 
 #Install xclip
@@ -8,16 +8,16 @@ sudo yum -y install epel-release.noarch
 sudo yum -y install xclip
 
 #Install xsel
-echo "Install xsel . . . . . . . . . . . . . . . . . . . . . . "
+echo "Install xsel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  . . . . . "
 sudo yum -y install epel-release.noarch
 sudo yum -y install xsel
 
 #Install wget curl nano
-echo "Install wget curl nano . . . . . . . . . . . . . . . . . . . . . . "
+echo "Install wget curl nano . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo dnf -y install wget curl nano
 
 #Install and config tmux
-echo "Install and config tmux . . . . . . . . . . . . . . . . . . . . . . "
+echo "Install and config tmux . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y install tmux
 sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo cp -v ./.tmux.conf ~/.tmux.conf
@@ -27,7 +27,7 @@ tmux source ~/.tmux.conf
 
 
 #Install and config kakoun
-echo "Install and config kakoun . . . . . . . . . . . . . . . . . . . . . . "
+echo "Install and config kakoun . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y install epel-release
 sudo yum repolist
 sudo yum -y install kakoune
@@ -73,20 +73,21 @@ echo 'source "plug "andreyorst/kaktree" config %{
 
 
 #Install wp cli
-echo "Install wp cli . . . . . . . . . . . . . . . . . . . . . . "
+echo "Install wp cli . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
 sudo chmod +x wp-cli.phar 
 sudo mv wp-cli.phar /usr/local/bin/wp 
 export WP_CLI_ALLOW_ROOT=true
 
 #Install bashtop: 
-echo "Install bashtop . . . . . . . . . . . . . . . . . . . . . . "
+echo "Install bashtop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo git clone https://github.com/aristocratos/bashtop.git 
 cd bashtop
 sudo make install
+cd ..
 
 #Install ctop: 
-echo "Install ctop . . . . . . . . . . . . . . . . . . . . . . "
+echo "Install ctop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo wget https://github.com/bcicen/ctop/releases/download/0.7.6/ctop-0.7.6-linux-amd64 -O /usr/local/bin/ctop 
 sudo chmod +x /usr/local/bin/ctop 
 
