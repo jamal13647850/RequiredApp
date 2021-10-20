@@ -1,5 +1,5 @@
 #Update system
-echo "Strar Update System . . . . . . . . . . . . . . . . . . . . . . "
+echo "Start Update System . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y update && sudo yum -y upgrade
 
 #Install xclip
@@ -72,15 +72,34 @@ echo 'source "plug "andreyorst/kaktree" config %{
 } '>>/usr/share/kak/kakrc
 
 
+#Install wp cli
+echo "Install wp cli . . . . . . . . . . . . . . . . . . . . . . "
+sudo curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
+sudo chmod +x wp-cli.phar 
+sudo mv wp-cli.phar /usr/local/bin/wp 
+export WP_CLI_ALLOW_ROOT=true
 
+#Install bashtop: 
+echo "Install bashtop . . . . . . . . . . . . . . . . . . . . . . "
+sudo yum install epel-release 
+sudo dnf install bashtop 
 
+#Install ctop: 
+echo "Install ctop . . . . . . . . . . . . . . . . . . . . . . "
+sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.6/ctop-0.7.6-linux-amd64 -O /usr/local/bin/ctop 
+sudo chmod +x /usr/local/bin/ctop 
 
 #Install and config ZSH
-echo "Install and config ZSH . . . . . . . . . . . . . . . . . . . . . . "
-sudo yum -y install zsh 
-zsh --version
-chsh -s $(which zsh)
-echo $SHELL
+# echo "Install and config ZSH . . . . . . . . . . . . . . . . . . . . . . "
+# sudo yum -y install zsh 
+# zsh --version
 
+# sudo dnf install util-linux-user
+# sudo chsh -s $(which zsh)
 
-sudo sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# echo $SHELL
+
+# echo "alias crontab='EDITOR=kak /usr/bin/crontab'">>~/.zshrc
+# echo "alias crontab='EDITOR=kak /usr/bin/crontab'">>~/.bashrc
+
+# sudo sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
