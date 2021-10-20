@@ -1,5 +1,5 @@
 #Update system
-sudo yum update && sudo yum upgrade
+sudo yum -y update && sudo yum -y upgrade
 
 #Install and config ZSH
 sudo yum -y install zsh 
