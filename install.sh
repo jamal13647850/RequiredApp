@@ -38,10 +38,10 @@ sudo git clone https://github.com/andreyorst/plug.kak.git $HOME/.config/kak/plug
 
 
 
-echo "map global user y '<a-|>xclip -i -selection clipboard<ret>'">>/usr/share/kak/kakrc
-echo "map global user p '!xclip -o<ret>'">>/usr/share/kak/kakrc
+sudo echo "map global user y '<a-|>xclip -i -selection clipboard<ret>'">>/usr/share/kak/kakrc
+sudo echo "map global user p '!xclip -o<ret>'">>/usr/share/kak/kakrc
 
-echo 'hook global ModeChange (push|pop):insert:.* %{
+sudo echo 'hook global ModeChange (push|pop):insert:.* %{
     set-face global PrimaryCursor      rgb:ffffff,rgb:008800+F
 }
 
@@ -49,11 +49,11 @@ hook global ModeChange (push|pop):.*:insert %{
     set-face global PrimaryCursor      rgb:ffffff,rgb:880000+F
 }'>>/usr/share/kak/kakrc
 
-echo 'source "%val{config}/plugins/plug.kak/rc/plug.kak"'>>/usr/share/kak/kakrc
-echo 'plug "andreyorst/plug.kak" noload"'>>/usr/share/kak/kakrc
+sudo echo 'source "%val{config}/plugins/plug.kak/rc/plug.kak"'>>/usr/share/kak/kakrc
+sudo echo 'plug "andreyorst/plug.kak" noload"'>>/usr/share/kak/kakrc
 
 
-echo 'source "plug "andreyorst/kaktree" config %{ 
+sudo echo 'source "plug "andreyorst/kaktree" config %{ 
 
     hook global WinSetOption filetype=kaktree %{
 
@@ -83,8 +83,7 @@ export WP_CLI_ALLOW_ROOT=true
 echo "Install bashtop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo git clone https://github.com/aristocratos/bashtop.git 
 cd bashtop
-sudo make install
-cd ..
+(cd /bashtop && sudo make install)
 
 #Install ctop: 
 echo "Install ctop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
