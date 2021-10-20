@@ -74,15 +74,16 @@ echo 'source "plug "andreyorst/kaktree" config %{
 
 #Install wp cli
 echo "Install wp cli . . . . . . . . . . . . . . . . . . . . . . "
-sudo curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
+sudo wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
 sudo chmod +x wp-cli.phar 
 sudo mv wp-cli.phar /usr/local/bin/wp 
 export WP_CLI_ALLOW_ROOT=true
 
 #Install bashtop: 
 echo "Install bashtop . . . . . . . . . . . . . . . . . . . . . . "
-sudo yum install epel-release 
-sudo dnf install bashtop 
+sudo git clone https://github.com/aristocratos/bashtop.git 
+cd bashtop
+sudo make install
 
 #Install ctop: 
 echo "Install ctop . . . . . . . . . . . . . . . . . . . . . . "
