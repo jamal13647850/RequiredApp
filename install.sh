@@ -1,3 +1,11 @@
+#!/bin/bash
+
+#chech run as sudo
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
 #Update system
 echo "Start Update System . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo yum -y update && sudo yum -y upgrade
@@ -82,6 +90,7 @@ export WP_CLI_ALLOW_ROOT=true
 #Install bashtop: 
 echo "Install bashtop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 sudo git clone https://github.com/aristocratos/bashtop.git 
+sudo yum install make
 (cd bashtop/ && sudo make install)
 
 #Install ctop: 
