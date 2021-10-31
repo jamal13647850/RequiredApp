@@ -37,7 +37,7 @@ tmux source ~/.tmux.conf
 
 
 
-#Install and config kakoun
+#Install and config kakoune
 echo -e '\e[1;31mInstall and config kakoun \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 
 sudo yum -y install epel-release
@@ -83,6 +83,9 @@ sudo echo 'source "plug "andreyorst/kaktree" config %{
 
 } '>>/usr/share/kak/kakrc
 
+echo "alias crontab='EDITOR=kak /usr/bin/crontab'">>~/.bashrc
+
+
 
 #Install wp cli
 echo -e '\e[1;31mInstall wp cli \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
@@ -116,3 +119,26 @@ sudo chmod +x /usr/local/bin/ctop
 # echo "alias crontab='EDITOR=kak /usr/bin/crontab'">>~/.bashrc
 
 # sudo sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+#Install clameav anti virus: 
+echo -e '\e[1;31mInstall clameav anti virus \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+
+sudo yum info perl 
+sudo yum -y install perl 
+perl -v 
+sudo yum -y install -y epel-release 
+sudo yum -y install -y clamav 
+
+#Install CSF : 
+echo -e '\e[1;31mInstall CSF  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+
+cd /usr/src 
+sudo rm -fv csf.tgz 
+sudo wget https://download.configserver.com/csf.tgz 
+sudo tar -xzf csf.tgz 
+cd csf 
+sudo sh install.sh 
+sudo perl /usr/local/csf/bin/csftest.pl 
+sudo yum -y install perl-libwww-perl.noarch perl-LWP-Protocol-https.noarch perl-GDGraph
+
+
