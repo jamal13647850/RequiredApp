@@ -141,4 +141,7 @@ sudo sh install.sh
 sudo perl /usr/local/csf/bin/csftest.pl 
 sudo yum -y install perl-libwww-perl.noarch perl-LWP-Protocol-https.noarch perl-GDGraph
 
+#Install rsync : 
+echo -e '\e[1;31mInstall rsync  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 
+sudo dnf -y install rsync
