@@ -144,9 +144,11 @@ sudo yum -y install perl-libwww-perl.noarch perl-LWP-Protocol-https.noarch perl-
 echo -e '\e[1;31mADD CloudFlare And Uptimerobot to white list  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 for i in `curl https://www.cloudflare.com/ips-v4`; do sudo csf -a $i; done
 
-f or i in `curl https://www.cloudflare.com/ips-v4`; do sudo echo $i >> /etc/csf/csf.ignore; done
+for i in `curl https://www.cloudflare.com/ips-v4`; do sudo echo $i >> /etc/csf/csf.ignore; done
 
-curl -s https://uptimerobot.com/inc/files/ips/IPv4andIPv6.txt | while read i; do sudo csf -a $i; done  
+curl -s https://uptimerobot.com/inc/files/ips/IPv4andIPv6.txt | while read i; do sudo csf -a $i; done
+
+sudo systemctl restart docker
 
 #Install rsync :
 echo -e '\e[1;31mInstall rsync  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
