@@ -129,6 +129,10 @@ perl -v
 sudo yum -y install -y epel-release
 sudo yum -y install -y clamav
 
+#Install sendmail :
+echo -e '\e[1;31mInstall sendmail  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+sudo yum install sendmail -y
+
 #Install CSF :
 echo -e '\e[1;31mInstall CSF  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 
@@ -147,6 +151,8 @@ for i in `curl https://www.cloudflare.com/ips-v4`; do sudo csf -a $i; done
 for i in `curl https://www.cloudflare.com/ips-v4`; do sudo echo $i >> /etc/csf/csf.ignore; done
 
 curl -s https://uptimerobot.com/inc/files/ips/IPv4andIPv6.txt | while read i; do sudo csf -a $i; done
+
+sudo csf -r
 
 sudo systemctl restart docker
 
