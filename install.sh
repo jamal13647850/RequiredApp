@@ -160,3 +160,7 @@ sudo systemctl restart docker
 echo -e '\e[1;31mInstall rsync  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 
 sudo dnf -y install rsync
+
+#Clean cache alias
+echo -e '\e[1;31mClean cache alias  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echo "alias crontab='docker exec -it webserver rm -rf ./etc/nginx-cache/ '">>~/.bashrc
