@@ -163,4 +163,5 @@ sudo dnf -y install rsync
 
 #Clean cache alias
 echo -e '\e[1;31mClean cache alias  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
-echo "alias cleancache='docker exec -it webserver rm -rf ./etc/nginx-cache/ '">>~/.bashrc
+echo "alias cleancache='docker exec -it webserver rm -rf ./etc/nginx-cache/'">>~/.bashrc
+source ~/.bashrc
