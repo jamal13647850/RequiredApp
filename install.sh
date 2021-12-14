@@ -21,10 +21,10 @@ echo -e '\e[1;31mInstall xsel \e[1;35m. . . . . . . . . . . . . . . . . . . . . 
 sudo yum -y install epel-release.noarch
 sudo yum -y install xsel
 
-#Install wget curl nano
-echo -e '\e[1;31mInstall wget curl nano \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+#Install wget curl nano tar
+echo -e '\e[1;31mInstall wget curl nano tar \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 
-sudo dnf -y install wget curl nano
+sudo dnf -y install wget curl nano tar
 
 #Install and config tmux
 echo -e '\e[1;31mInstall and config tmux \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
