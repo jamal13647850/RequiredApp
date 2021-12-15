@@ -129,6 +129,10 @@ perl -v
 sudo yum -y install -y epel-release
 sudo yum -y install -y clamav
 
+#Install Rkhunter
+echo -e '\e[1;31mInstall Rkhunter \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+sudo yum -y install rkhunter
+
 #Install sendmail :
 echo -e '\e[1;31mInstall sendmail  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 sudo yum install sendmail -y
