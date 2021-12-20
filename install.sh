@@ -6,6 +6,8 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+source functions.sh
+
 #Update system
 echo -e '\e[1;31mStart Update System \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
 sudo yum -y update && sudo yum -y upgrade
