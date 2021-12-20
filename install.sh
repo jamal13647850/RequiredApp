@@ -186,9 +186,20 @@ sudo systemctl enable docker
 sudo systemctl start docker 
 #sudo systemctl status docker 
 
+sudo dnf install -y fuse-overlayfs
+sudo dnf install -y iptables
+sudo systemctl disable --now docker.service docker.socke
+dockerd-rootless-setuptool.sh install
+systemctl --user start docker
+systemctl --user enable docker
+sudo loginctl enable-linger $(whoami)
+sudo systemctl enable docker
+sudo systemctl start docker
+
 #Clean cache alias
 echoTitle 1 16 'Clean cache alias'
 
 echo "alias cleancache='docker exec -it webserver rm -rf ./etc/nginx-cache/'">>~/.bashrc
 source ~/.bashrc
 
+echoTitle 2 16 'Please reboot'
