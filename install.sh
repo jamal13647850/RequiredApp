@@ -9,27 +9,29 @@ fi
 source functions.sh
 
 #Update system
-echo -e '\e[1;31mStart Update System \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 1 16 'Start Update System'
+
 sudo yum -y update && sudo yum -y upgrade
 
 #Install xclip
-echo -e '\e[1;31mInstall xclip \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 2 16 'Install xclip'
+
 sudo yum -y install epel-release.noarch
 sudo yum -y install xclip
 
 #Install xsel
-echo -e '\e[1;31mInstall xsel \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 3 16 'Install xsel'
 
 sudo yum -y install epel-release.noarch
 sudo yum -y install xsel
 
 #Install wget curl nano tar
-echo -e '\e[1;31mInstall wget curl nano tar \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 4 16 'Install wget curl nano tar'
 
 sudo dnf -y install wget curl nano tar
 
 #Install and config tmux
-echo -e '\e[1;31mInstall and config tmux \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 5 16 'Install and config tmux'
 
 sudo yum -y install tmux
 sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -40,7 +42,7 @@ tmux source ~/.tmux.conf
 
 
 #Install and config kakoune
-echo -e '\e[1;31mInstall and config kakoun \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 6 16 'Install and config kakoune'
 
 sudo yum -y install epel-release
 sudo yum repolist
@@ -90,20 +92,23 @@ echo "alias crontab='EDITOR=kak /usr/bin/crontab'">>~/.bashrc
 
 
 #Install wp cli
-echo -e '\e[1;31mInstall wp cli \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 7 16 'Install wp cli'
+
 sudo wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 sudo chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 export WP_CLI_ALLOW_ROOT=true
 
 #Install bashtop:
-echo -e '\e[1;31mInstall bashtop \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 8 16 'Install bashtop'
+
 sudo git clone https://github.com/aristocratos/bashtop.git
 sudo yum -y install make
 (cd bashtop/ && sudo make install)
 
 #Install ctop:
-echo -e '\e[1;31mInstall ctop \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 9 16 'Install ctop'
+
 sudo wget https://github.com/bcicen/ctop/releases/download/0.7.6/ctop-0.7.6-linux-amd64 -O /usr/local/bin/ctop
 sudo chmod +x /usr/local/bin/ctop
 
@@ -123,7 +128,7 @@ sudo chmod +x /usr/local/bin/ctop
 # sudo sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 #Install clameav anti virus:
-echo -e '\e[1;31mInstall clameav anti virus \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 10 16 'Install clameav anti virus'
 
 sudo yum info perl
 sudo yum -y install perl
@@ -132,15 +137,17 @@ sudo yum -y install -y epel-release
 sudo yum -y install -y clamav
 
 #Install Rkhunter
-echo -e '\e[1;31mInstall Rkhunter \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 11 16 'Install Rkhunter'
+
 sudo yum -y install rkhunter
 
 #Install sendmail :
-echo -e '\e[1;31mInstall sendmail  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 12 16 'Install sendmail'
+
 sudo yum install sendmail -y
 
 #Install CSF :
-echo -e '\e[1;31mInstall CSF  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 13 16 'Install CSF'
 
 cd /usr/src
 sudo rm -fv csf.tgz
@@ -151,7 +158,9 @@ sudo sh install.sh
 sudo perl /usr/local/csf/bin/csftest.pl
 sudo yum -y install perl-libwww-perl.noarch perl-LWP-Protocol-https.noarch perl-GDGraph
 #ADD CloudFlare And Uptimerobot to white list:
-echo -e '\e[1;31mADD CloudFlare And Uptimerobot to white list  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+
+echoTitle 13 16 'ADD CloudFlare And Uptimerobot to white list'
+
 for i in `curl https://www.cloudflare.com/ips-v4`; do sudo csf -a $i; done
 
 for i in `curl https://www.cloudflare.com/ips-v4`; do sudo echo $i >> /etc/csf/csf.ignore; done
@@ -163,11 +172,23 @@ sudo csf -r
 sudo systemctl restart docker
 
 #Install rsync :
-echo -e '\e[1;31mInstall rsync  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 14 16 'Install rsync'
 
 sudo dnf -y install rsync
 
+#Install docker
+echoTitle 15 16 'Install docker'
+
+sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo 
+sudo dnf update 
+sudo dnf install -y docker-ce docker-ce-cli containerd.io 
+sudo systemctl enable docker 
+sudo systemctl start docker 
+sudo systemctl status docker 
+
 #Clean cache alias
-echo -e '\e[1;31mClean cache alias  \e[1;35m. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+echoTitle 1 16 'Clean cache alias'
+
 echo "alias cleancache='docker exec -it webserver rm -rf ./etc/nginx-cache/'">>~/.bashrc
 source ~/.bashrc
+

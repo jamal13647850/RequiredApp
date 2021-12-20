@@ -19,3 +19,14 @@ setColors(){
     set_background=$(tput setab $background)
     echo -n $set_background$set_foreground
 }
+
+
+echoTitle(){
+    local foreground=$1
+    local background=$2
+    local text=$3
+    setColors $1 $2
+    echo -e ". . . . . . . . . . . . . . . . . . . $3 . . . . . . . . . . . . . . . . . . . . . . . . ."
+    setColors 15 16
+}
+
