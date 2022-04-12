@@ -66,7 +66,7 @@ hook global ModeChange (push|pop):.*:insert %{
 }'>>/usr/share/kak/kakrc
 
 sudo echo 'source "%val{config}/plugins/plug.kak/rc/plug.kak"'>>/usr/share/kak/kakrc
-sudo echo 'plug "andreyorst/plug.kak" noload"'>>/usr/share/kak/kakrc
+sudo echo 'plug "andreyorst/plug.kak" noload'>>/usr/share/kak/kakrc
 
 
 sudo echo 'source "plug "andreyorst/kaktree" config %{
