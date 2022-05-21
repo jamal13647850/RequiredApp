@@ -179,12 +179,12 @@ echoTitle 14 16 'Install rsync'
 
 sudo dnf -y install rsync
 
-#Install docker
-echoTitle 15 16 'Install docker'
+#Install docker and docker compose
+echoTitle 15 16 'Install docker and docker compose'
 
 sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo 
 sudo dnf update 
-sudo dnf install -y docker-ce docker-ce-cli containerd.io 
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo systemctl enable docker 
 sudo systemctl start docker 
 #sudo systemctl status docker 
