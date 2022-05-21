@@ -8,6 +8,9 @@ fi
 
 source functions.sh
 
+echo "Please enter non-root user:"
+read non_root_user
+
 #Update system
 echoTitle 1 16 'Start Update System'
 
@@ -195,6 +198,8 @@ systemctl --user enable docker
 sudo loginctl enable-linger $(whoami)
 sudo systemctl enable docker
 sudo systemctl start docker
+
+sudo usermod -aG docker $non_root_user 
 
 #Clean cache alias
 echoTitle 1 16 'Clean cache alias'
